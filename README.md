@@ -28,8 +28,16 @@
 
 ### 安装
 
+npm（已发布 `0.1.0`，推荐）：
+
 ```bash
 dsh plugin --profile web add dsh-py-doctor      # 装进 profile
+```
+
+预构建 tarball（与 npm 上是同一份产物，适合离线或需要固定版本）：
+
+```bash
+dsh plugin --profile web add https://github.com/ax2/dsh-py-doctor/releases/download/v0.1.0/dsh-py-doctor-0.1.0.tgz
 ```
 
 包内 `cordis.patch.yml` 会往 profile 的 bundle 列表里插入一行 `id: py-doctor`，DSH 加载 profile 时即注册这 6 个工具。
@@ -251,8 +259,11 @@ text rather than silently shrinking the payload.
 ### Install
 
 ```bash
-dsh plugin --profile web add dsh-py-doctor
+dsh plugin --profile web add dsh-py-doctor      # npm, published 0.1.0
 ```
+
+Or pin the prebuilt tarball (the same artifact, for offline installs):
+`https://github.com/ax2/dsh-py-doctor/releases/download/v0.1.0/dsh-py-doctor-0.1.0.tgz`
 
 The packaged `cordis.patch.yml` inserts one bundle row (`id: py-doctor`), so loading the
 profile registers all six tools. Locally you can skip publishing and mount the build

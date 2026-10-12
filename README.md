@@ -10,6 +10,36 @@
 
 ---
 
+## 快速开始
+
+[![npm](https://img.shields.io/npm/v/dsh-py-doctor)](https://www.npmjs.com/package/dsh-py-doctor)
+![tools](https://img.shields.io/badge/tools-6-blue) ![tests](https://img.shields.io/badge/tests-75%20passing-brightgreen) ![network](https://img.shields.io/badge/network-none-informational) ![license](https://img.shields.io/badge/license-MIT-lightgrey)
+
+```sh
+dsh plugin --profile web add dsh-py-doctor
+```
+
+装完**重启应用**（bundle 列表是启动时读的）。想一次装齐四个插件（含 [deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) / [jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) / [win-native](https://github.com/ax2/dsh-win-native)）用 [`dsh-zidev-toolbox`](https://github.com/ax2/dsh-zidev-toolbox)；**别和单独安装混用**。
+
+**15 秒看效果** —— 把 traceback 贴进去，模型调用 `python_traceback`，拿回（实测输出）：
+
+```
+exception_type: KeyError            message: 'user_id'
+deepest_frame:  svc.py:42 in handle
+cause_hint:     The mapping has no key 'user_id'; production data is usually
+                missing the key that test data always has.
+coverage:       3/3 lines, 0 unknown, confidence 1 (parser tb-1)
+```
+
+**为什么不让模型自己写 pwsh？** 它读得懂 traceback，但给不了这个：
+- **覆盖率**：未识别的行（`unknown_lines`）逐条列出，而不是被静默丢掉；
+- **一次就对**：`__cause__` / `__context__` 链、SyntaxError 的 caret 行列、`[Previous line repeated N more times]` 都有 75 个测试盯着；
+- **不吃幻觉**：pytest / migrations / checks / celery 的每个数字都能追溯到原文行。
+
+相邻插件：[dsh-deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) · [dsh-jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) · [dsh-win-native](https://github.com/ax2/dsh-win-native) · [dsh-zidev-toolbox](https://github.com/ax2/dsh-zidev-toolbox)
+
+---
+
 ## 中文说明
 
 ### 它解决什么问题

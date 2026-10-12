@@ -1,6 +1,6 @@
 {
   "name": "dsh-py-doctor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Deterministic, offline Python/Django production-report diagnostics for DeepSeek Harness: tracebacks, pytest, migrations, N+1 SQL, manage.py check, Celery.",
   "type": "module",
   "main": "lib/index.js",

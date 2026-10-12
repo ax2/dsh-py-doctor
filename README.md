@@ -34,11 +34,13 @@ npm（推荐）：
 dsh plugin --profile web add dsh-py-doctor      # 装进 profile
 ```
 
-预构建 tarball（与 npm 上是同一份产物，适合离线或需要固定版本）：
+预构建 tarball（与 npm 上是同一份产物，无需构建步骤）：
 
 ```bash
-dsh plugin --profile web add https://github.com/ax2/dsh-py-doctor/releases/download/v0.1.1/dsh-py-doctor-0.1.1.tgz
+dsh plugin --profile web add https://github.com/ax2/dsh-py-doctor/releases/latest/download/dsh-py-doctor.tgz
 ```
+
+要固定版本就把 `latest/download/dsh-py-doctor.tgz` 换成 `download/v<version>/dsh-py-doctor-<version>.tgz`。
 
 包内 `cordis.patch.yml` 会往 profile 的 bundle 列表里插入一行 `id: py-doctor`，DSH 加载 profile 时即注册这 6 个工具。
 本地开发时不必发布，直接挂载构建产物：
@@ -263,7 +265,12 @@ dsh plugin --profile web add dsh-py-doctor      # npm
 ```
 
 Or pin the prebuilt tarball (the same artifact, for offline installs):
-`https://github.com/ax2/dsh-py-doctor/releases/download/v0.1.1/dsh-py-doctor-0.1.1.tgz`
+`https://github.com/ax2/dsh-py-doctor/releases/latest/download/dsh-py-doctor.tgz` (or
+`download/v<version>/dsh-py-doctor-<version>.tgz` to pin a version)
+
+Verified end to end: the published package was installed from npm into a scratch profile
+and a real model turn called `python_traceback` on a three-line traceback, returning
+`exception_type`, the frame list and 100% parse coverage (`session-b5681b93`).
 
 The packaged `cordis.patch.yml` inserts one bundle row (`id: py-doctor`), so loading the
 profile registers all six tools. Locally you can skip publishing and mount the build

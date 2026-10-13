@@ -1,6 +1,6 @@
 {
   "name": "dsh-py-doctor",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "DSH plugin: deterministic, offline Python/Django production-report diagnostics — traceback root cause, pytest summaries, unapplied migrations, N+1 SQL, manage.py check --deploy and Celery backlog. Does not execute Python, start subprocesses or touch the network.",
   "type": "module",
   "main": "lib/index.js",

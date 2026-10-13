@@ -19,7 +19,7 @@
 dsh plugin --profile web add dsh-py-doctor
 ```
 
-装完**重启应用**（bundle 列表是启动时读的）。想一次装齐四个插件（含 [deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) / [jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) / [win-native](https://github.com/ax2/dsh-win-native)）用 [`@ax2zicode/dsh-dev-toolbox`](https://github.com/ax2/dsh-dev-toolbox)；**别和单独安装混用**。
+装完**重启应用**（bundle 列表是启动时读的）。想一次装齐四个插件（含 [deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) / [jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) / [win-native](https://github.com/ax2/dsh-win-native)）用 [`dsh-toolbox-bundle`](https://github.com/ax2/dsh-toolbox-bundle)；**别和单独安装混用**。
 
 **家族总览**：[zicode.com/software](https://zicode.com/software/) 是四个插件、合装包与桌面软件的统一入口。
 
@@ -38,7 +38,7 @@ coverage:       3/3 lines, 0 unknown, confidence 1 (parser tb-1)
 - **一次就对**：`__cause__` / `__context__` 链、SyntaxError 的 caret 行列、`[Previous line repeated N more times]` 都有 75 个测试盯着；
 - **不吃幻觉**：pytest / migrations / checks / celery 的每个数字都能追溯到原文行。
 
-相邻插件：[dsh-deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) · [dsh-jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) · [dsh-win-native](https://github.com/ax2/dsh-win-native) · [dsh-dev-toolbox](https://github.com/ax2/dsh-dev-toolbox)
+相邻插件：[dsh-deterministic-tools](https://github.com/ax2/dsh-deterministic-tools) · [dsh-jvm-doctor](https://github.com/ax2/dsh-jvm-doctor) · [dsh-win-native](https://github.com/ax2/dsh-win-native) · [dsh-toolbox-bundle](https://github.com/ax2/dsh-toolbox-bundle)
 
 ---
 
